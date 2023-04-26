@@ -22,7 +22,7 @@
           :class="{
             'border-red-600': !!state.email.errorMessage
           }"
-          class="block w-full px-4 py-3 mt-1 text-lg bg-gray-100 border-2 border-transparent rounded"
+          class="block w-full px-4 py-3 mt-1 text-lg bg-gray-100 border-2 rounded"
           placeholder="jane.dae@gmail.com"
         >
         <span
@@ -40,7 +40,7 @@
           :class="{
             'border-red-600': !!state.password.errorMessage
           }"
-          class="block w-full px-4 py-3 mt-1 text-lg bg-gray-100 border-2 border-transparent rounded"
+          class="block w-full px-4 py-3 mt-1 text-lg bg-gray-100 border-2 rounded"
           placeholder="*********"
         >
         <span
@@ -67,20 +67,32 @@
 
 <script>
 import { reactive } from 'vue'
+import { useField } from 'vee-validate'
 import useModal from '@/hooks/useModal'
+import { validateEmptyAndLength3, validateEmptyAndEmail } from '@/utils/validators'
 export default {
   setup () {
     const modal = useModal()
+    const {
+      value: emailValue,
+      errorMessage: emailErrorMessage
+    } = useField('email', validateEmptyAndEmail)
+
+    const {
+      value: passwordValue,
+      errorMessage: passwordErrorMessage
+    } = useField('password', validateEmptyAndLength3)
+
     const state = reactive({
       hasErrors: false,
       isLoading: false,
       email: {
-        value: '',
-        errorMessage: ''
+        value: emailValue,
+        errorMessage: emailErrorMessage
       },
       password: {
-        value: '',
-        errorMessage: ''
+        value: passwordValue,
+        errorMessage: passwordErrorMessage
       }
     })
 

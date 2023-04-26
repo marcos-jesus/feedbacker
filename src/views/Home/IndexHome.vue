@@ -5,7 +5,7 @@
   />
   <contact />
   <div class="flex justify-center py-10 bg-gray-100">
-    <p class="font-medium text-center text-gray-800">feedbacker - 2023</p>
+    <p class="font-medium text-center text-gray-800">Feedbacker - 2023</p>
   </div>
 </template>
 <script>

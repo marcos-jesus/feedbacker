@@ -22,7 +22,7 @@
       </div>
 
       <div class="flex flex-col mt-28">
-        <h1 class="text-4xl font-black text-white">
+        <h1 class="text-4xl font-black text-white hover:cursor-pointer">
           Tenha um feedback. <br>
           E faça seus clientes mais <br class="hidden lg:inline-block">
           felizes!
