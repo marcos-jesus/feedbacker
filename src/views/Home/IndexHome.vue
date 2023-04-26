@@ -35,7 +35,9 @@ export default {
     }
 
     function handleAccountCreate () {
-      alert('Cadastrar')
+      modal.open({
+        component: 'ModalCreateAccount'
+      })
     }
 
     return {

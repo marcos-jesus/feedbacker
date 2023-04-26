@@ -5,6 +5,6 @@
 <script>
 import ModalFactory from '@/components/ModalFactory/IndexModal'
 export default {
-  component: { ModalFactory }
+  components: { ModalFactory }
 }
 </script>
