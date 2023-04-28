@@ -3,8 +3,25 @@
   <router-view />
 </template>
 <script>
+import { watch } from 'vue'
+import { useRouter, useRoute } from 'vue-router'
 import ModalFactory from '@/components/ModalFactory/IndexModal'
 export default {
-  components: { ModalFactory }
+  components: { ModalFactory },
+
+  setup () {
+    const router = useRouter()
+    const route = useRoute()
+
+    watch(() => route.path, () => {
+      if (route.meta.hasAuth) {
+        const token = window.localStorage.getItem('token')
+
+        if (!token) {
+          router.push({ name: 'Home' })
+        }
+      }
+    })
+  }
 }
 </script>
