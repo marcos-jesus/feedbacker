@@ -16,7 +16,8 @@ const httpClient = axios.create({
 httpClient.interceptors.request.use(config => {
   const token = window.localStorage.getItem('token')
   if (token) {
-    config.headers.commom.Authorization = `Bearer ${token}`
+    //  config.headers.commom.Authorization = `Bearer ${token}`
+    config.headers.Authorization = `Bearer ${token}`
   }
 
   return config
@@ -32,7 +33,6 @@ httpClient.interceptors.response.use((response) => response, (error) => {
   if (error.response.status === 401) {
     router.push({ name: 'Home' })
   }
-
   return error
 })
 
