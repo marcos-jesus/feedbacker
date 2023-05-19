@@ -11,8 +11,8 @@ export default {
   components: { ModalFactory },
 
   setup () {
-    const router = useRouter()
-    const route = useRoute()
+    const router = useRouter() // Ação de rotas
+    const route = useRoute() // informações de rota
 
     watch(() => route.path, async () => {
       if (route.meta.hasAuth) {
